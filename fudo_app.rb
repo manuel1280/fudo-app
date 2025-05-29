@@ -20,6 +20,7 @@ class FudoApp
     @auth_client = AuthenticationClient.new
     @products_api = ProductsApi.new
     @application_client = ApplicationClient.new
+    @products_api.start_background_services_queue
   end
 
   def call(env)
@@ -50,18 +51,20 @@ class FudoApp
 
   private
 
-  def handle_create_product(req, res)
+  def authenticate_request(req, res)
     return unless @auth_client.require_authentication(req, res)
+    yield
+  end
+
+  def handle_create_product(req, res)
     authenticate_request(req, res) { @products_api.handle_create_product(req, res) }
   end
 
   def handle_list_products(req, res)
-    return unless @auth_client.require_authentication(req, res)
     authenticate_request(req, res) { @products_api.handle_list_products(req, res) }
   end
 
   def handle_get_product(req, res)
-    return unless @auth_client.require_authentication(req, res)
     authenticate_request(req, res) { @products_api.handle_get_product(req, res) }
   end
 end

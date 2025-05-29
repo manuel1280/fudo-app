@@ -8,6 +8,10 @@ class ProductsApi < ApplicationClient
     @product_service = ProductCreationService.new
   end
 
+  def start_background_services_queue
+    @product_service.start
+  end
+
   def handle_create_product(req, res)
     data = parse_request_body(req)
 
@@ -31,6 +35,16 @@ class ProductsApi < ApplicationClient
       set_json_response(res, products)
     rescue StandardError => e
       set_error_response(res, "Failed to retrieve products: #{e.message}", status: 500)
+    end
+  end
+
+  def handle_get_product(req, res)
+    id = req.path_info.split('/').last
+    begin
+      product = Product.find(id).as_json(only: [:id, :name, :status])
+      set_json_response(res, product)
+    rescue ActiveRecord::RecordNotFound
+      not_found_response(res)
     end
   end
 end
