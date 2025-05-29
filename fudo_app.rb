@@ -1,8 +1,4 @@
-require 'rack'
 require 'json'
-require 'active_record'
-require 'securerandom'
-require 'byebug'
 
 require_relative 'app/models/product'
 require_relative 'app/models/user_session'

@@ -3,10 +3,10 @@ require_relative '../models/user_session'
 
 class AuthService
   def initialize
-    @user_session = UserSession.first
   end
 
   def authenticate(user, password)
+    @user_session = UserSession.find_by(user: user)
     if @user_session.password == password
       @user_session.token = SecureRandom.hex(16)
       @user_session.save

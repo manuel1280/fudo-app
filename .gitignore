@@ -1,3 +1,10 @@
-*.gem
-*.rbc
-/.config
+/app/db/*.sqlite3
+/.bundle
+/log/*.log
+.DS_Store
+.byebug_history
+fudo_app
+fudo_app-shm
+fudo_app-wal
+db
+Gemfile.lock

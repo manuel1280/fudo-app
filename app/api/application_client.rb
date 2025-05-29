@@ -1,4 +1,3 @@
-require 'rack'
 require 'json'
 
 class ApplicationClient
@@ -42,4 +41,4 @@ class ApplicationClient
       not_found_response(res)
     end
   end
-end 
+end
