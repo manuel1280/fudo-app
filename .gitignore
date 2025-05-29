@@ -7,4 +7,3 @@ fudo_app
 fudo_app-shm
 fudo_app-wal
 db
-Gemfile.lock
