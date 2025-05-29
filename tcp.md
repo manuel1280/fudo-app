@@ -1,0 +1,1 @@
+TCP es un protocolo de red que garantiza que los datos viajen completos y en el orden correcto entre dos computadoras. Primero establecen una conexión segura y luego confirman cada paquete fue recibido, reenviándolo si detectan errores. Esto lo hace fiable para navegar, descargar archivos y comunicaciones en internet.

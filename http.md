@@ -1,0 +1,1 @@
+HTTP es un protocolo que usa TCP para enviar y recibir datos. Es un protocolo que permite la comunicación entre navegadores y servidores web. Una petición HTTP consta de un metodo (PUT,POST,PATCH,DELETE) ruta y versión, cabeceras (HEADERS) y cuerpo opcional (BODY). Cada petición solicita recursos (páginas, imágenes o datos) y el servidor responde con el contenido pedido.
